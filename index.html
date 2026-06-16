@@ -229,6 +229,48 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
+          .headshot {
+            width: 160px;
+            height: 160px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 12px 30px rgba(0,119,200,0.12);
+            border: 4px solid rgba(255,255,255,0.7);
+        }
+
+        .headshot-sm {
+            width: 96px;
+            height: 96px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,119,200,0.08);
+            border: 3px solid rgba(255,255,255,0.7);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            transition: transform .4s ease, box-shadow .4s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.10);
+        }
+
+        .gallery-figure {
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(15,23,42,0.04);
+            background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+        }
+
+        @media (max-width: 1024px) {
+            .headshot { display: none; }
+            .headshot-sm { display: inline-block; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative">
@@ -336,57 +378,51 @@
         <!-- 2. 關於鍾皓軒 About Howard -->
         <section id="about" class="py-24 bg-light/50 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">                    
                     <!-- 左側文字介紹 -->
                     <div class="lg:col-span-5 reveal">
-                        <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-primary text-sm font-semibold tracking-wider mb-4 border border-blue-100">
-                            ABOUT
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-2">關於鍾皓軒</h2>
-                        <p class="font-tech text-secondary font-medium tracking-wide mb-6">AI Consultant / Prompt Engineer / AI Product Manager</p>
-                        
-                        <div class="space-y-4 text-muted leading-relaxed text-lg">
-                            <p>
-                                我是鍾皓軒，臺灣行銷研究有限公司 (TMR) 創辦人。專注於 <strong class="text-dark font-medium">AI、資料科學與行銷策略應用</strong> 的企業顧問與課程講師。
-                            </p>
-                            <p>
-                                擁有 8 年以上的資料科學實戰與產業教學經驗，我長期協助企業、學術單位與專業人士理解數據、導入 AI 工具。我的核心價值在於：不只懂技術，更懂如何將分析結果轉化為<strong class="text-primary font-medium">企業聽得懂、團隊學得會、現場用得上</strong>的商業策略與成長方案。
-                            </p>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                            <!-- Headshot (桌面版本) -->
+                            <img src="mywork/鍾皓軒-headshot-01.jpg" alt="鍾皓軒 Howard Chung" class="headshot hidden lg:block">
+
+                            <!-- Headshot (行動/平板) -->
+                            <img src="mywork/鍾皓軒-headshot-01.jpg" alt="鍾皓軒 Howard Chung" class="headshot-sm block lg:hidden">
+
+                            <div>
+                                <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-primary text-sm font-semibold tracking-wider mb-4 border border-blue-100">
+                                    ABOUT
+                                </div>
+                                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-2">關於鍾皓軒</h2>
+                                <p class="font-tech text-secondary font-medium tracking-wide mb-4">AI Consultant / Prompt Engineer / AI Product Manager</p>
+
+                                <div class="space-y-4 text-muted leading-relaxed text-lg">
+                                    <p>
+                                        我是鍾皓軒（Howard Chung），臺灣行銷研究有限公司 (TMR) 創辦人。專注於 <strong class="text-dark font-medium">AI、資料科學與行銷策略應用</strong> 的企業顧問與課程講師。
+                                    </p>
+                                    <p>
+                                        擁有 8 年以上的資料科學實戰與產業教學經驗，我長期協助企業、學術單位與專業人士理解數據、導入 AI 工具。我的核心價值在於：不只懂技術，更懂如何將分析結果轉化為<strong class="text-primary font-medium">企業聽得懂、團隊學得會、現場用得上</strong>的商業策略與成長方案。
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 右側數據亮點卡片 -->
                     <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal delay-200">
-                        <!-- Card 1 -->
-                        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
-                            <h3 class="text-4xl font-tech font-bold text-dark mb-2">8<span class="text-primary">+</span> <span class="text-base font-normal text-muted font-sans">年</span></h3>
-                            <p class="text-dark font-medium mb-1">資料科學與教學經驗</p>
-                            <p class="text-sm text-slate-500">深耕數據分析領域，累積豐富實戰與培訓底蘊。</p>
-                        </div>
-                        
-                        <!-- Card 2 -->
-                        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
-                            <h3 class="text-4xl font-tech font-bold text-dark mb-2">100<span class="text-secondary">+</span></h3>
-                            <p class="text-dark font-medium mb-1">企業內訓與專案顧問</p>
-                            <p class="text-sm text-slate-500">涵蓋金融、製造、醫療、零售等多產業跨域整合經驗。</p>
-                        </div>
+                        <!-- ...existing cards (Card 1 ~ Card 4) ... -->
 
-                        <!-- Card 3 -->
-                        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group sm:col-span-2 md:col-span-1">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
-                            <div class="text-accent mb-3 text-2xl"><i class="fa-solid fa-layer-group"></i></div>
-                            <p class="text-dark font-medium mb-1">AI × Data × Marketing</p>
-                            <p class="text-sm text-slate-500">黃金三角跨域整合，提供全方位數位轉型解方。</p>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group sm:col-span-2 md:col-span-1 bg-gradient-to-br from-white to-blue-50/50">
-                            <div class="text-primary mb-3 text-2xl"><i class="fa-solid fa-chalkboard-user"></i></div>
-                            <p class="text-dark font-medium mb-1">指標機構指定講師</p>
-                            <p class="text-sm text-slate-500">中華電信、長榮航空、資策會、工研院等單位授課。</p>
+                        <!-- 展示：內訓與專案現場圖片（放在 Cards 區塊下方，靠近 About）-->
+                        <div class="sm:col-span-2 mt-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <figure class="gallery-figure glass-card p-0 reveal">
+                                    <img src="mywork/內訓-01.jpg" alt="內訓現場" class="gallery-image">
+                                    <figcaption class="p-3 text-sm text-slate-600">企業內訓現場：課程實作與討論</figcaption>
+                                </figure>
+                                <figure class="gallery-figure glass-card p-0 reveal">
+                                    <img src="mywork/專案-01.jpg" alt="專案現場" class="gallery-image">
+                                    <figcaption class="p-3 text-sm text-slate-600">專案實作：客戶現場部署與驗證</figcaption>
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </div>
